@@ -1,9 +1,9 @@
 import { arrowFunctionExpression } from "@babel/types";
-import styled from "styled-components";
+import styled, { useTheme } from "styled-components";
 import Card from "./Card";
 import { useState, useEffect } from "react";
 
-function fetchItems() {
+async function fetchItems() {
   return fetch("https://rickandmortyapi.com/api/character").then((result) =>
     result.json()
   );
@@ -20,12 +20,11 @@ function App() {
         gender: item.gender,
         status: item.status,
         species: item.species,
-        //origin: items.origin.name,
+        origin: item.origin.name,
         image: item.image,
       }));
       setCharacters(itemsFetchedFromApi);
       console.log(itemsFetchedFromApi);
-      console.log(characters);
     });
   }, []);
 
@@ -56,10 +55,13 @@ export default App;
 const Header = styled.div`
   background: url(https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.logolynx.com%2Fimages%2Flogolynx%2F1b%2F1b195a66f61b7036991d19b9a2bb4e7c.jpeg&f=1&nofb=1);
   height: 145px;
+  width: 350px;
+  margin: 0 auto;
   background-size: cover;
 `;
 
 const CardContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
 `;
