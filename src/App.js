@@ -25,14 +25,14 @@ function App() {
         image: item.image,
       }));
       setCharacters(itemsFetchedFromApi);
-      console.log(itemsFetchedFromApi);
+      //console.log(itemsFetchedFromApi);
     });
   }, []);
 
   return (
     <div className="App">
       <Header />
-      <ButtonContainer/>
+      <ButtonContainer />
       <CardContainer>
         {characters.map(
           ({ name, id, gender, origin, status, image, species }) => (

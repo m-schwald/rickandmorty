@@ -1,6 +1,7 @@
 import { useState } from "react";
 import styled from "styled-components/macro";
 import Growbox from "./Growbox";
+import PropTypes from "prop-types";
 
 export default function Card({
   name,
@@ -21,6 +22,7 @@ export default function Card({
       image={image}
     >
       <Growbox
+        key={id}
         clicked={clicked}
         name={name}
         species={species}
@@ -77,4 +79,12 @@ const CardBox = styled.section`
   } 
 `;
 
-
+Card.propTypes = {
+  id: PropTypes.number,
+  name: PropTypes.string,
+  gender: PropTypes.string,
+  species: PropTypes.string,
+  status: PropTypes.string,
+  origin: PropTypes.string,
+  image: PropTypes.string,
+};

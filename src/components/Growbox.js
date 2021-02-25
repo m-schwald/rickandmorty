@@ -1,33 +1,41 @@
-import styled from "styled-components"
+import styled from "styled-components";
+import PropTypes from "prop-types";
 
-export default function Growbox({clicked,name,gender,species,status,origin}) {
-    return(
-        <StyledGrowbox clicked={clicked}>
-        <h2> {name} </h2>
-        {clicked && (
-          <>
-            <section>
-              <div>
-                {gender === "Male" ? "♂︎" : gender === "Female" ? "♀︎" : "?"}
-              </div>
-              <div>
-                {species === "Human" && gender === "Male"
-                  ? "🧔"
-                  : species === "Human" && gender === "Female"
-                  ? "👩‍🦰"
-                  : species === "Alien"
-                  ? "👽"
-                  : "?"}
-              </div>
-              <div>
-                {status === "Alive" ? "⭐️" : status === "Dead" ? "💀" : "?"}
-              </div>
-            </section>
-            <p> {origin} </p>
-          </>
-        )}
-      </StyledGrowbox>
-    )
+export default function Growbox({
+  clicked,
+  name,
+  gender,
+  species,
+  status,
+  origin,
+}) {
+  return (
+    <StyledGrowbox clicked={clicked}>
+      <h2> {name} </h2>
+      {clicked && (
+        <>
+          <section>
+            <div>
+              {gender === "Male" ? "♂︎" : gender === "Female" ? "♀︎" : "?"}
+            </div>
+            <div>
+              {species === "Human" && gender === "Male"
+                ? "🧔"
+                : species === "Human" && gender === "Female"
+                ? "👩‍🦰"
+                : species === "Alien"
+                ? "👽"
+                : "?"}
+            </div>
+            <div>
+              {status === "Alive" ? "⭐️" : status === "Dead" ? "💀" : "?"}
+            </div>
+          </section>
+          <p> {origin} </p>
+        </>
+      )}
+    </StyledGrowbox>
+  );
 }
 
 const StyledGrowbox = styled.div`
@@ -43,3 +51,12 @@ const StyledGrowbox = styled.div`
   border: ${(props) => (props.clicked ? "solid 1px chartreuse" : "none")};
   box-shadow: ${(props) => (props.clicked ? "chartreuse 0 3px 10px" : "none")};
 `;
+
+Growbox.propTypes = {
+  clicked: PropTypes.bool,
+  name: PropTypes.string,
+  gender: PropTypes.string,
+  species: PropTypes.string,
+  status: PropTypes.string,
+  origin: PropTypes.string,
+};
