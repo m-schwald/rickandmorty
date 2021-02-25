@@ -1,7 +1,8 @@
-import { arrowFunctionExpression } from "@babel/types";
-import styled, { useTheme } from "styled-components";
-import Card from "./Card";
 import { useState, useEffect } from "react";
+import styled from "styled-components";
+
+import Card from "./components/Card";
+import ButtonContainer from "./components/ButtonContainer";
 
 async function fetchItems() {
   return fetch("https://rickandmortyapi.com/api/character").then((result) =>
@@ -31,6 +32,7 @@ function App() {
   return (
     <div className="App">
       <Header />
+      <ButtonContainer/>
       <CardContainer>
         {characters.map(
           ({ name, id, gender, origin, status, image, species }) => (
