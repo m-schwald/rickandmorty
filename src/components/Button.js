@@ -1,8 +1,8 @@
 import styled from "styled-components";
 import PropTypes from "prop-types";
 
-export default function Button({ text, clickHandler }) {
-  return <StyledButton onClick={clickHandler}>{text}</StyledButton>;
+export default function Button({ text, onFilterSpecies }) {
+  return <StyledButton onClick={onFilterSpecies}>{text}</StyledButton>;
 }
 
 const StyledButton = styled.button`

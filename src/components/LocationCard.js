@@ -1,42 +1,27 @@
 import { useState } from "react";
 import styled from "styled-components/macro";
-import Growbox from "./Growbox";
+import LocationGrowbox from "./LocationGrowbox";
 import PropTypes from "prop-types";
 
-export default function Card({
-  name,
-  id,
-  gender,
-  origin,
-  status,
-  image,
-  species,
-}) {
+export default function Card({ name, id, dimension, type }) {
   const [clicked, setClicked] = useState(false);
 
   return (
-    <CardBox
-      onClick={() => setClicked(!clicked)}
-      key={id}
-      clicked={clicked}
-      image={image}
-    >
-      <Growbox
+    <CardBox onClick={() => setClicked(!clicked)} key={id} clicked={clicked}>
+      <H3>{name}</H3>
+      <LocationGrowbox
         key={id}
         clicked={clicked}
         name={name}
-        species={species}
-        gender={gender}
-        status={status}
-        origin={origin}
+        dimension={dimension}
+        type={type}
       />
     </CardBox>
   );
 }
 
 const CardBox = styled.section`
-  background: url(${(props) => props.image}),
-    linear-gradient(darkslategrey, teal);
+  background: teal;
   background-repeat: no-repeat;
   border: solid 1px chartreuse;
   box-shadow: chartreuse 0 3px 10px;
@@ -46,7 +31,7 @@ const CardBox = styled.section`
   justify-content: center;
   align-items: center;
   padding: 0 0 1rem 0;
-  height: 370px;
+  height: 170px;
   width: 80%;
   margin: 1rem 1rem;
   overflow: hidden;
@@ -54,6 +39,7 @@ const CardBox = styled.section`
   position: relative;
   
   &:hover{
+    
     box-shadow: chartreuse 0 0 30px;
   }
   }
@@ -71,15 +57,21 @@ const CardBox = styled.section`
 
   p {
     font-size: 1rem;
+    color: chartreuse;
   }
   h2 {
     font-size: 1.3rem;
     color: black;
-    text-shadow: chartreuse 3px 3px 10px;
+    text-shadow: black 3px 3px 10px;
     margin: 1.5rem 0;  
+    color: chartreuse;
 
 
   } 
+`;
+
+const H3 = styled.h3`
+  text-shadow: chartreuse 3px 3px 10px;
 `;
 
 Card.propTypes = {
