@@ -1,53 +1,15 @@
-import { useState, useEffect } from "react";
 import styled from "styled-components";
-
-import Card from "./components/Card";
-import ButtonContainer from "./components/ButtonContainer";
-
-async function fetchItems() {
-  return fetch("https://rickandmortyapi.com/api/character").then((result) =>
-    result.json()
-  );
-}
+import Characters from "./pages/characters";
+import Home from "./pages/home";
+import Locations from "./pages/locations";
 
 function App() {
-  const [characters, setCharacters] = useState([]);
-
-  useEffect(() => {
-    fetchItems().then((items) => {
-      const itemsFetchedFromApi = items.results.map((item) => ({
-        id: item.id,
-        name: item.name,
-        gender: item.gender,
-        status: item.status,
-        species: item.species,
-        origin: item.origin.name,
-        image: item.image,
-      }));
-      setCharacters(itemsFetchedFromApi);
-      //console.log(itemsFetchedFromApi);
-    });
-  }, []);
-
   return (
     <div className="App">
       <Header />
-      <ButtonContainer />
-      <CardContainer>
-        {characters.map(
-          ({ name, id, gender, origin, status, image, species }) => (
-            <Card
-              name={name}
-              id={id}
-              species={species}
-              gender={gender}
-              status={status}
-              origin={origin}
-              image={image}
-            />
-          )
-        )}
-      </CardContainer>
+      <Home />
+      <Characters />
+      <Locations />
     </div>
   );
 }
@@ -60,10 +22,4 @@ const Header = styled.div`
   width: 350px;
   margin: 0 auto;
   background-size: cover;
-`;
-
-const CardContainer = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
 `;
