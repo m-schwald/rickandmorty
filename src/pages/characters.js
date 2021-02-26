@@ -47,12 +47,17 @@ function Characters() {
     setCharacters(alive);
   }
 
+  function filterAll() {
+    setCharacters(originalCharacters);
+  }
+
   return (
     <>
       <ButtonContainer
         onFilterHumans={() => filterSpecies("Human")}
         onFilterAliens={() => filterSpecies("Alien")}
         onFilterAlive={filterAlive}
+        showAll={filterAll}
       />
       <CardContainer>
         {characters.map(

@@ -1,6 +1,12 @@
 import styled from "styled-components";
 
 export default function Locations() {
+  async function fetchItems() {
+    return fetch("https://rickandmortyapi.com/api/character").then((result) =>
+      result.json()
+    );
+  }
+
   return (
     <>
       <Flexbox>

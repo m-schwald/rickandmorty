@@ -6,7 +6,7 @@ export default createGlobalStyle`
     }
 
 body {
-    background: black; 
+    background:black; 
     font-family: sans-serif;
     margin: 0;
 }
