@@ -53,6 +53,7 @@ function Characters() {
 
   return (
     <>
+      <H2>Characters</H2>
       <ButtonContainer
         onFilterHumans={() => filterSpecies("Human")}
         onFilterAliens={() => filterSpecies("Alien")}
@@ -80,16 +81,12 @@ function Characters() {
 
 export default Characters;
 
-const Header = styled.div`
-  background: url(https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.logolynx.com%2Fimages%2Flogolynx%2F1b%2F1b195a66f61b7036991d19b9a2bb4e7c.jpeg&f=1&nofb=1);
-  height: 145px;
-  width: 350px;
-  margin: 0 auto;
-  background-size: cover;
-`;
-
 const CardContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+`;
+const H2 = styled.h2`
+  color: chartreuse;
+  text-align: center;
 `;
